@@ -1,0 +1,16 @@
+{
+  "name": "storefront-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Storefront Management System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.0"
+  },
+  "keywords": ["storefront", "management", "frontend"],
+  "author": "",
+  "license": "ISC"
+}
