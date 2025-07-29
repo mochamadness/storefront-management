@@ -1,13 +1,16 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
-  "private": true,
-  "main": "index.js",
+  "name": "storefront-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Storefront Management System",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
-  "keywords": [],
+  "dependencies": {
+    "express": "^4.18.0"
+  },
+  "keywords": ["storefront", "management", "frontend"],
   "author": "",
-  "license": "ISC",
-  "description": ""
+  "license": "ISC"
 }
