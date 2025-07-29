@@ -96,7 +96,8 @@ router.post('/', requirePermission('canProcessSales'), [
 
       // Update stock for all items
       for (const update of stockUpdates) {
-        await update.product.updateStock(update.quantity, 'subtract');
+        update.product.stockQuantity = Math.max(0, update.product.stockQuantity - update.quantity);
+        await update.product.save({ transaction: t });
       }
 
       // Log individual transactions for each item
@@ -122,7 +123,7 @@ router.post('/', requirePermission('canProcessSales'), [
           },
           ipAddress: req.ip,
           userAgent: req.get('User-Agent')
-        })
+        }, t)
       );
 
       await Promise.all(transactionPromises);

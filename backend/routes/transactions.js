@@ -42,10 +42,10 @@ router.get('/', requirePermission('canViewTransactions'), async (req, res) => {
     if (startDate || endDate) {
       whereClause.createdAt = {};
       if (startDate) {
-        whereClause.createdAt[Transaction.sequelize.Op.gte] = new Date(startDate);
+        whereClause.createdAt[Op.gte] = new Date(startDate);
       }
       if (endDate) {
-        whereClause.createdAt[Transaction.sequelize.Op.lte] = new Date(endDate);
+        whereClause.createdAt[Op.lte] = new Date(endDate);
       }
     }
 
@@ -241,10 +241,10 @@ router.get('/stats/summary', requirePermission('canViewTransactions'), async (re
     if (startDate || endDate) {
       whereClause.createdAt = {};
       if (startDate) {
-        whereClause.createdAt[Transaction.sequelize.Op.gte] = new Date(startDate);
+        whereClause.createdAt[Op.gte] = new Date(startDate);
       }
       if (endDate) {
-        whereClause.createdAt[Transaction.sequelize.Op.lte] = new Date(endDate);
+        whereClause.createdAt[Op.lte] = new Date(endDate);
       }
     }
 

@@ -96,7 +96,7 @@ const Transaction = sequelize.define('Transaction', {
 });
 
 // Class methods
-Transaction.logTransaction = async function(data) {
+Transaction.logTransaction = async function(data, transaction = null) {
   try {
     return await this.create({
       userId: data.userId,
@@ -108,7 +108,7 @@ Transaction.logTransaction = async function(data) {
       metadata: data.metadata || {},
       ipAddress: data.ipAddress || null,
       userAgent: data.userAgent || null
-    });
+    }, { transaction });
   } catch (error) {
     console.error('Error logging transaction:', error);
     throw error;

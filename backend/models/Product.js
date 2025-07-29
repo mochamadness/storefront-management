@@ -96,7 +96,7 @@ Product.prototype.isLowStock = function() {
   return this.stockQuantity <= this.minStockLevel;
 };
 
-Product.prototype.updateStock = function(quantity, operation = 'add') {
+Product.prototype.updateStock = function(quantity, operation = 'add', transaction = null) {
   if (operation === 'add') {
     this.stockQuantity += quantity;
   } else if (operation === 'subtract') {
@@ -104,7 +104,7 @@ Product.prototype.updateStock = function(quantity, operation = 'add') {
   } else if (operation === 'set') {
     this.stockQuantity = Math.max(0, quantity);
   }
-  return this.save();
+  return this.save({ transaction });
 };
 
 // Class methods
